@@ -1,0 +1,307 @@
+{
+    "version": "2.1",
+    "last_updated": "2025-07-08",
+    "global_settings": {
+      "request_timeout": 30,
+      "retry_attempts": 3,
+      "delay_between_requests": 2,
+      "user_agents": [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      ],
+      "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1"
+      }
+    },
+    "site_specific_configs": {
+      "mercadolivre.com": {
+        "name": "Mercado Livre",
+        "price_current_selectors": [
+          ".andes-money-amount__fraction[aria-hidden='true']",
+          ".price-tag-fraction",
+          ".ui-pdp-price__second-line .andes-money-amount__fraction"
+        ],
+        "price_original_selectors": [
+          ".andes-money-amount__fraction[aria-hidden='true']",
+          ".ui-pdp-price__original-value .andes-money-amount__fraction",
+          ".price-tag-symbol + .price-tag-fraction"
+        ],
+        "product_title_selectors": [
+          "img.poly-component__picture[title]",
+          ".ui-pdp-title",
+          "h1.ui-pdp-title"
+        ],
+        "product_image_selectors": [
+          "img.poly-component__picture",
+          ".ui-pdp-gallery__figure img",
+          "img[src*='mlb-s']"
+        ],
+        "wait_selectors": [
+          ".andes-money-amount__fraction",
+          "img.poly-component__picture"
+        ]
+      },
+      "amzn.to": {
+        "name": "Amazon",
+        "price_current_selectors": [
+          ".a-price-whole",
+          ".a-price.a-text-price .a-offscreen",
+          ".a-price-current .a-offscreen"
+        ],
+        "price_original_selectors": [
+          ".a-price.a-text-price[data-a-strike='true'] .a-offscreen",
+          ".a-price-was .a-offscreen",
+          ".a-text-strike .a-offscreen"
+        ],
+        "product_title_selectors": [
+          "#productTitle",
+          ".product-title",
+          "h1.a-size-large"
+        ],
+        "product_image_selectors": [
+          "#landingImage",
+          ".a-dynamic-image",
+          "#imgBlkFront"
+        ],
+        "wait_selectors": [
+          "#productTitle",
+          ".a-price-whole",
+          "#landingImage"
+        ]
+      },
+      "amazon.com.br": {
+        "name": "Amazon Brasil",
+        "price_current_selectors": [
+          ".a-price-whole",
+          ".a-price.a-text-price .a-offscreen",
+          ".a-price-current .a-offscreen"
+        ],
+        "price_original_selectors": [
+          ".a-price.a-text-price[data-a-strike='true'] .a-offscreen",
+          ".a-price-was .a-offscreen",
+          ".a-text-strike .a-offscreen"
+        ],
+        "product_title_selectors": [
+          "#productTitle",
+          ".product-title",
+          "h1.a-size-large"
+        ],
+        "product_image_selectors": [
+          "#landingImage",
+          ".a-dynamic-image",
+          "#imgBlkFront"
+        ],
+        "wait_selectors": [
+          "#productTitle",
+          ".a-price-whole",
+          "#landingImage"
+        ]
+      },
+      "magazineluiza.onelink.me": {
+        "name": "Magazine Luiza",
+        "price_current_selectors": [
+          "[data-testid='price-value']",
+          ".sc-hgRRfv.dfAhbD",
+          ".price-template__values"
+        ],
+        "price_original_selectors": [
+          "[data-testid='price-original']",
+          ".sc-cyRcrZ.cVhyZj",
+          ".price-template__discount"
+        ],
+        "product_title_selectors": [
+          "[data-testid='heading-product-title']",
+          ".sc-dcJsrY.jjGTqv",
+          "h1[data-testid]"
+        ],
+        "product_image_selectors": [
+          "[data-testid='image-selected-thumbnail']",
+          ".sc-hzhJZQ.knorgy",
+          ".gallery-image-container img"
+        ],
+        "wait_selectors": [
+          "[data-testid='price-value']",
+          "[data-testid='heading-product-title']",
+          "[data-testid='image-selected-thumbnail']"
+        ]
+      },
+      "magazineluiza.com.br": {
+        "name": "Magazine Luiza",
+        "price_current_selectors": [
+          "[data-testid='price-value']",
+          ".sc-hgRRfv.dfAhbD",
+          ".price-template__values"
+        ],
+        "price_original_selectors": [
+          "[data-testid='price-original']",
+          ".sc-cyRcrZ.cVhyZj",
+          ".price-template__discount"
+        ],
+        "product_title_selectors": [
+          "[data-testid='heading-product-title']",
+          ".sc-dcJsrY.jjGTqv",
+          "h1[data-testid]"
+        ],
+        "product_image_selectors": [
+          "[data-testid='image-selected-thumbnail']",
+          ".sc-hzhJZQ.knorgy",
+          ".gallery-image-container img"
+        ],
+        "wait_selectors": [
+          "[data-testid='price-value']",
+          "[data-testid='heading-product-title']",
+          "[data-testid='image-selected-thumbnail']"
+        ]
+      }
+    },
+    "field_selectors": {
+      "price_current": {
+        "selectors": [
+          "[data-testid='price-value']",
+          ".a-price-whole",
+          ".andes-money-amount__fraction[aria-hidden='true']",
+          "[class*='price-current']",
+          ".price",
+          "[data-price]",
+          ".ui-pdp-price__second-line .andes-money-amount__fraction",
+          ".a-price-current .a-offscreen"
+        ],
+        "attributes_to_check": [
+          "data-price",
+          "content",
+          "value",
+          "data-testid",
+          "aria-label"
+        ]
+      },
+      "price_original": {
+        "selectors": [
+          "[data-testid='price-original']",
+          ".a-price.a-text-price .a-offscreen",
+          ".andes-money-amount__fraction[aria-hidden='true']",
+          "[class*='price-original']",
+          "[class*='price-old']",
+          ".ui-pdp-price__original-value .andes-money-amount__fraction",
+          ".a-price-was .a-offscreen",
+          "s",
+          "del",
+          ".text-decoration-line-through",
+          "[style*='line-through']",
+          "[style*='text-decoration']"
+        ],
+        "attributes_to_check": [
+          "data-price",
+          "content",
+          "value",
+          "data-testid",
+          "aria-label"
+        ]
+      },
+      "product_title": {
+        "selectors": [
+          "[data-testid='heading-product-title']",
+          "#productTitle",
+          "img.poly-component__picture[title]",
+          "h1",
+          "[class*='product-title']",
+          ".ui-pdp-title",
+          ".product-title-word-break"
+        ],
+        "attributes_to_check": [
+          "title",
+          "alt",
+          "data-testid",
+          "aria-label"
+        ]
+      },
+      "product_image": {
+        "selectors": [
+          "[data-testid='image-selected-thumbnail']",
+          "#landingImage",
+          "img.poly-component__picture",
+          "[class*='product-image']",
+          ".ui-pdp-gallery__figure img",
+          ".a-dynamic-image",
+          ".gallery-image-container img"
+        ],
+        "attributes_to_check": [
+          "src",
+          "data-src",
+          "data-old-hires",
+          "data-zoom-image"
+        ]
+      },
+      "availability": {
+        "selectors": [
+          "[data-testid='availability']",
+          ".availability",
+          "#availability span",
+          ".stock-info",
+          "[class*='stock']",
+          "[class*='availability']"
+        ],
+        "attributes_to_check": [
+          "data-testid",
+          "aria-label",
+          "title"
+        ]
+      }
+    },
+    "price_patterns": {
+      "price_regex": [
+        "R\\$\\s*([\\d.,]+)",
+        "([\\d]+[.,][\\d]{2})",
+        "([\\d]{1,3}(?:[.,][\\d]{3})*[.,][\\d]{2})",
+        "([\\d]+(?:[.,][\\d]{3})*[.,][\\d]{2})",
+        "([\\d.,]+)"
+      ]
+    },
+    "selenium_settings": {
+      "implicit_wait": 10,
+      "page_load_timeout": 30,
+      "script_timeout": 30,
+      "window_size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "chrome_options": [
+        "--disable-gpu",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-extensions",
+        "--disable-plugins",
+        "--disable-images",
+        "--disable-javascript",
+        "--headless"
+      ]
+    },
+    "promotional_templates": {
+      "default": "🔥 {title}\n💰 {price_info}\n🔗 {url}",
+      "with_discount": "🔥 {title}\n💰 De R$ {price_original:.2f} por R$ {price_current:.2f}\n🎯 {discount}% OFF\n🔗 {url}",
+      "simple": "🔥 {title}\n💰 Por apenas R$ {price_current:.2f}\n🔗 {url}",
+      "emojis": {
+        "fire": "🔥",
+        "money": "💰",
+        "target": "🎯",
+        "link": "🔗",
+        "star": "⭐",
+        "cart": "🛒",
+        "gift": "🎁"
+      }
+    },
+    "validation_rules": {
+      "min_title_length": 3,
+      "max_title_length": 200,
+      "min_price_value": 0.01,
+      "max_price_value": 999999.99,
+      "required_fields": [
+        "title",
+        "price_current"
+      ]
+    }
+  }

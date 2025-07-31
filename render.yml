@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: proscraper-pro
+    env: python
+    plan: free
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_APP
+        value: app.py
+      - key: PORT
+        value: 5000
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+      - key: SCRAPER_API_KEY
+        value: 2db7bcd2b42c895deb472a3da5aab3e7
+    healthCheckPath: /health
+    previewsEnabled: false
+    autoDeploy: true
+    branch: main

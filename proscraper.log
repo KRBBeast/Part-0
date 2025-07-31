@@ -1,0 +1,190 @@
+2025-07-28 10:44:08,607 - INFO - Supabase conectado com sucesso
+2025-07-28 10:44:09,719 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.130.165:5000
+2025-07-28 10:44:09,719 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:44:09,719 - INFO -  * Restarting with stat
+2025-07-28 10:44:11,553 - INFO - Supabase conectado com sucesso
+2025-07-28 10:44:11,589 - WARNING -  * Debugger is active!
+2025-07-28 10:44:11,597 - INFO -  * Debugger PIN: 498-024-688
+2025-07-28 10:44:16,208 - INFO - 127.0.0.1 - - [28/Jul/2025 10:44:16] "GET / HTTP/1.1" 200 -
+2025-07-28 10:44:16,227 - INFO - 127.0.0.1 - - [28/Jul/2025 10:44:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-28 10:44:35,409 - INFO - 127.0.0.1 - - [28/Jul/2025 10:44:35] "GET / HTTP/1.1" 200 -
+2025-07-28 10:44:43,083 - INFO - 127.0.0.1 - - [28/Jul/2025 10:44:43] "GET / HTTP/1.1" 200 -
+2025-07-28 10:45:06,303 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:06] "GET / HTTP/1.1" 200 -
+2025-07-28 10:45:13,575 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-28 10:45:17,588 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:17] "GET / HTTP/1.1" 200 -
+2025-07-28 10:45:17,616 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:17] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-28 10:45:41,897 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:41] "GET / HTTP/1.1" 200 -
+2025-07-28 10:45:42,243 - INFO - 127.0.0.1 - - [28/Jul/2025 10:45:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-28 10:47:13,386 - INFO - 127.0.0.1 - - [28/Jul/2025 10:47:13] "GET / HTTP/1.1" 200 -
+2025-07-28 10:49:45,757 - INFO -  * Detected change in 'c:\\Users\\Aluno\\Desktop\\teste-site-fantini\\app.py', reloading
+2025-07-28 10:49:45,983 - INFO -  * Restarting with stat
+2025-07-28 10:49:47,741 - INFO - Supabase conectado com sucesso
+2025-07-28 10:49:47,764 - WARNING -  * Debugger is active!
+2025-07-28 10:49:47,772 - INFO -  * Debugger PIN: 498-024-688
+2025-07-28 10:49:50,539 - INFO - 127.0.0.1 - - [28/Jul/2025 10:49:50] "GET / HTTP/1.1" 200 -
+2025-07-28 10:50:09,842 - INFO -  * Detected change in 'c:\\Users\\Aluno\\Desktop\\teste-site-fantini\\setup.py', reloading
+2025-07-28 10:50:09,957 - INFO -  * Restarting with stat
+2025-07-28 10:50:11,636 - INFO - Supabase conectado com sucesso
+2025-07-28 10:50:11,674 - WARNING -  * Debugger is active!
+2025-07-28 10:50:11,680 - INFO -  * Debugger PIN: 498-024-688
+2025-07-28 10:50:59,388 - INFO - Supabase conectado com sucesso
+2025-07-28 10:51:00,273 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.130.165:5000
+2025-07-28 10:51:00,273 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 10:51:00,273 - INFO -  * Restarting with stat
+2025-07-28 10:51:01,888 - INFO - Supabase conectado com sucesso
+2025-07-28 10:51:01,919 - WARNING -  * Debugger is active!
+2025-07-28 10:51:01,926 - INFO -  * Debugger PIN: 498-024-688
+2025-07-28 10:51:04,674 - INFO - 127.0.0.1 - - [28/Jul/2025 10:51:04] "GET / HTTP/1.1" 200 -
+2025-07-28 10:51:54,454 - INFO - Nova requisição de análise para: https://magazineluiza.onelink.me/589508454/aku2p234
+2025-07-28 10:51:54,454 - INFO - === INICIANDO EXTRAÇÃO ===
+2025-07-28 10:51:54,454 - INFO - URL original: https://magazineluiza.onelink.me/589508454/aku2p234
+2025-07-28 10:51:54,454 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/aku2p234
+2025-07-28 10:51:55,839 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:55,839 - INFO - Site identificado: Magazine Luiza
+2025-07-28 10:51:55,839 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/aku2p234
+2025-07-28 10:51:56,860 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:56,861 - INFO - URL final após resolução: https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:56,861 - INFO - Fazendo requisição (tentativa 1): https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:57,391 - INFO - Resposta recebida: 377499 bytes, status: 200
+2025-07-28 10:51:57,408 - WARNING - Página de erro detectada na tentativa 1
+2025-07-28 10:51:57,409 - INFO - Fazendo requisição (tentativa 2): https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:57,409 - INFO - Aguardando 2s antes da próxima tentativa...
+2025-07-28 10:51:59,554 - INFO - Resposta recebida: 377499 bytes, status: 200
+2025-07-28 10:51:59,556 - WARNING - Página de erro detectada na tentativa 2
+2025-07-28 10:51:59,556 - INFO - Fazendo requisição (tentativa 3): https://www.magazinevoce.com.br/magazinefreeisland/creatina-pura-300g-max-titanium/p/dfjb5908ak/sa/sacr/
+2025-07-28 10:51:59,556 - INFO - Aguardando 4s antes da próxima tentativa...
+2025-07-28 10:52:03,690 - INFO - Resposta recebida: 377499 bytes, status: 200
+2025-07-28 10:52:03,707 - WARNING - Página de erro detectada na tentativa 3
+2025-07-28 10:52:03,707 - WARNING - Última tentativa - retornando conteúdo mesmo com possível erro
+2025-07-28 10:52:03,707 - INFO - HTML obtido com sucesso: 376517 caracteres
+2025-07-28 10:52:03,745 - INFO - Iniciando extração detalhada do Magazine Luiza
+2025-07-28 10:52:03,758 - INFO - Magalu - Título encontrado: Creatina Pura 300g - Max Titanium...
+2025-07-28 10:52:03,765 - INFO - Magalu - Avaliação: 4.7
+2025-07-28 10:52:03,766 - INFO - Extraindo preços do Magazine Luiza
+2025-07-28 10:52:03,769 - INFO - Magalu - Preço original: R$ 71,90
+2025-07-28 10:52:03,776 - INFO - Magalu - Preço atual: ouR$ 49,90
+2025-07-28 10:52:03,778 - INFO - Magalu - Imagem encontrada: https://a-static.mlcdn.com.br/800x560/creatina-pur...
+2025-07-28 10:52:03,786 - INFO - Magalu - Parcelamento: R$ 70,81 em 21x de R$ 3,37 no Cartão Magalu
+2025-07-28 10:52:03,786 - INFO - Magalu - Extração concluída. Campos encontrados: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 10:52:03,787 - INFO - Processando preço original: 'ouR$ 49,90'
+2025-07-28 10:52:03,787 - INFO - Preço processado: ouR$ 49,90 -> R$ 49,90 (float: 49.9)
+2025-07-28 10:52:03,787 - INFO - Preço atual processado: R$ 49,90 (valor: 49.9)
+2025-07-28 10:52:03,788 - INFO - Processando preço original: 'R$ 71,90'
+2025-07-28 10:52:03,788 - INFO - Preço processado: R$ 71,90 -> R$ 71,90 (float: 71.9)
+2025-07-28 10:52:03,788 - INFO - Preço original processado: R$ 71,90 (valor: 71.9)
+2025-07-28 10:52:03,789 - INFO - Desconto calculado automaticamente: 31%
+2025-07-28 10:52:03,789 - INFO - === EXTRAÇÃO CONCLUÍDA ===
+2025-07-28 10:52:03,789 - INFO - Site: Magazine Luiza
+2025-07-28 10:52:03,789 - INFO - Campos extraídos: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 10:52:03,790 - INFO - Erros: 0
+2025-07-28 10:52:03,790 - INFO - Tempo total de extração: 9.34s
+2025-07-28 10:52:03,792 - INFO - Resposta enviada - Sucesso: True
+2025-07-28 10:52:03,793 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:03] "POST /analyze HTTP/1.1" 200 -
+2025-07-28 10:52:09,188 - INFO - Salvando mensagem: 🔥 OFERTA IMPERDÍVEL! 💪\nCreatina Pura 300g - Max Titanium\n💸 De R$ 71,90 por R$ 49,90 (31% OFF)\n🚚 F...
+2025-07-28 10:52:09,931 - INFO - HTTP Request: POST https://cnwrcrpihldqejyvgysn.supabase.co/rest/v1/produtos "HTTP/2 201 Created"
+2025-07-28 10:52:09,931 - INFO - Promoção salva no Supabase com sucesso
+2025-07-28 10:52:09,931 - INFO - 127.0.0.1 - - [28/Jul/2025 10:52:09] "POST /supabase/save-promotion HTTP/1.1" 200 -
+2025-07-28 10:56:09,813 - INFO - Nova requisição de análise para: https://magazineluiza.onelink.me/589508454/wmq5b0s6
+2025-07-28 10:56:09,814 - INFO - === INICIANDO EXTRAÇÃO ===
+2025-07-28 10:56:09,814 - INFO - URL original: https://magazineluiza.onelink.me/589508454/wmq5b0s6
+2025-07-28 10:56:09,814 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/wmq5b0s6
+2025-07-28 10:56:10,963 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:10,963 - INFO - Site identificado: Magazine Luiza
+2025-07-28 10:56:10,963 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/wmq5b0s6
+2025-07-28 10:56:11,663 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:11,663 - INFO - URL final após resolução: https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:11,663 - INFO - Fazendo requisição (tentativa 1): https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:11,780 - INFO - Resposta recebida: 337458 bytes, status: 200
+2025-07-28 10:56:11,780 - WARNING - Página de erro detectada na tentativa 1
+2025-07-28 10:56:11,780 - INFO - Fazendo requisição (tentativa 2): https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:11,780 - INFO - Aguardando 2s antes da próxima tentativa...
+2025-07-28 10:56:13,819 - INFO - Resposta recebida: 337458 bytes, status: 200
+2025-07-28 10:56:13,831 - WARNING - Página de erro detectada na tentativa 2
+2025-07-28 10:56:13,831 - INFO - Fazendo requisição (tentativa 3): https://www.magazinevoce.com.br/magazinefreeisland/perfume-banderas-blue-seduction-masculino-eau-de-toilette-200ml/p/238101800/pf/ppms/
+2025-07-28 10:56:13,832 - INFO - Aguardando 4s antes da próxima tentativa...
+2025-07-28 10:56:17,881 - INFO - Resposta recebida: 337458 bytes, status: 200
+2025-07-28 10:56:17,881 - WARNING - Página de erro detectada na tentativa 3
+2025-07-28 10:56:17,881 - WARNING - Última tentativa - retornando conteúdo mesmo com possível erro
+2025-07-28 10:56:17,897 - INFO - HTML obtido com sucesso: 336574 caracteres
+2025-07-28 10:56:17,939 - INFO - Iniciando extração detalhada do Magazine Luiza
+2025-07-28 10:56:17,939 - INFO - Magalu - Título encontrado: Perfume Banderas Blue Seduction Masculino - Eau de...
+2025-07-28 10:56:17,939 - INFO - Magalu - Avaliação: 4.5
+2025-07-28 10:56:17,939 - INFO - Extraindo preços do Magazine Luiza
+2025-07-28 10:56:17,954 - INFO - Magalu - Preço original: R$ 289,00
+2025-07-28 10:56:17,955 - INFO - Magalu - Preço atual: ouR$ 163,34
+2025-07-28 10:56:17,955 - INFO - Magalu - Imagem encontrada: https://a-static.mlcdn.com.br/800x560/perfume-band...
+2025-07-28 10:56:17,966 - INFO - Magalu - Parcelamento: R$ 183,55 em 21x de R$ 8,74 no Cartão Magalu
+2025-07-28 10:56:17,967 - INFO - Magalu - Extração concluída. Campos encontrados: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 10:56:17,967 - INFO - Processando preço original: 'ouR$ 163,34'
+2025-07-28 10:56:17,968 - INFO - Preço processado: ouR$ 163,34 -> R$ 163,34 (float: 163.34)
+2025-07-28 10:56:17,968 - INFO - Preço atual processado: R$ 163,34 (valor: 163.34)
+2025-07-28 10:56:17,969 - INFO - Processando preço original: 'R$ 289,00'
+2025-07-28 10:56:17,970 - INFO - Preço processado: R$ 289,00 -> R$ 289,00 (float: 289.0)
+2025-07-28 10:56:17,971 - INFO - Preço original processado: R$ 289,00 (valor: 289.0)
+2025-07-28 10:56:17,971 - INFO - Desconto calculado automaticamente: 43%
+2025-07-28 10:56:17,972 - INFO - === EXTRAÇÃO CONCLUÍDA ===
+2025-07-28 10:56:17,972 - INFO - Site: Magazine Luiza
+2025-07-28 10:56:17,972 - INFO - Campos extraídos: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 10:56:17,973 - INFO - Erros: 0
+2025-07-28 10:56:17,973 - INFO - Tempo total de extração: 8.16s
+2025-07-28 10:56:17,974 - INFO - Resposta enviada - Sucesso: True
+2025-07-28 10:56:17,974 - INFO - 127.0.0.1 - - [28/Jul/2025 10:56:17] "POST /analyze HTTP/1.1" 200 -
+2025-07-28 10:56:57,393 - INFO - Salvando mensagem: 🎁 Presenteie com economia! 👗\nPerfume Banderas Blue Seduction Masculino - Eau de Toilette 200ml\n🏷️ ...
+2025-07-28 10:56:57,760 - INFO - HTTP Request: POST https://cnwrcrpihldqejyvgysn.supabase.co/rest/v1/produtos "HTTP/2 201 Created"
+2025-07-28 10:56:57,760 - INFO - Promoção salva no Supabase com sucesso
+2025-07-28 10:56:57,760 - INFO - 127.0.0.1 - - [28/Jul/2025 10:56:57] "POST /supabase/save-promotion HTTP/1.1" 200 -
+2025-07-28 11:09:26,066 - INFO - Nova requisição de análise para: https://magazineluiza.onelink.me/589508454/t6zwfwe6
+2025-07-28 11:09:26,066 - INFO - === INICIANDO EXTRAÇÃO ===
+2025-07-28 11:09:26,066 - INFO - URL original: https://magazineluiza.onelink.me/589508454/t6zwfwe6
+2025-07-28 11:09:26,066 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/t6zwfwe6
+2025-07-28 11:09:27,235 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:27,236 - INFO - Site identificado: Magazine Luiza
+2025-07-28 11:09:27,237 - INFO - Resolvendo URL encurtada: https://magazineluiza.onelink.me/589508454/t6zwfwe6
+2025-07-28 11:09:28,425 - INFO - URL resolvida com sucesso: https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:28,441 - INFO - URL final após resolução: https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:28,441 - INFO - Fazendo requisição (tentativa 1): https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:28,515 - INFO - Resposta recebida: 437484 bytes, status: 200
+2025-07-28 11:09:28,532 - WARNING - Página de erro detectada na tentativa 1
+2025-07-28 11:09:28,532 - INFO - Fazendo requisição (tentativa 2): https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:28,532 - INFO - Aguardando 2s antes da próxima tentativa...
+2025-07-28 11:09:30,581 - INFO - Resposta recebida: 437484 bytes, status: 200
+2025-07-28 11:09:30,581 - WARNING - Página de erro detectada na tentativa 2
+2025-07-28 11:09:30,581 - INFO - Fazendo requisição (tentativa 3): https://www.magazinevoce.com.br/magazinefreeisland/tablet-vaio-tl10-com-teclado-de-conexao-inteligente-104-128gb-8gb-ram-android-13-octa-core-wi-fi-4g/p/237304800/tb/tbtm/
+2025-07-28 11:09:30,581 - INFO - Aguardando 4s antes da próxima tentativa...
+2025-07-28 11:09:34,642 - INFO - Resposta recebida: 437484 bytes, status: 200
+2025-07-28 11:09:34,642 - WARNING - Página de erro detectada na tentativa 3
+2025-07-28 11:09:34,642 - WARNING - Última tentativa - retornando conteúdo mesmo com possível erro
+2025-07-28 11:09:34,652 - INFO - HTML obtido com sucesso: 435816 caracteres
+2025-07-28 11:09:34,701 - INFO - Iniciando extração detalhada do Magazine Luiza
+2025-07-28 11:09:34,701 - INFO - Magalu - Título encontrado: Tablet Vaio TL10 com Teclado de Conexão Inteligent...
+2025-07-28 11:09:34,701 - INFO - Magalu - Avaliação: 4.5
+2025-07-28 11:09:34,701 - INFO - Extraindo preços do Magazine Luiza
+2025-07-28 11:09:34,713 - INFO - Magalu - Preço original: R$ 2.299,00
+2025-07-28 11:09:34,718 - INFO - Magalu - Preço atual: ouR$ 1.609,08
+2025-07-28 11:09:34,722 - INFO - Magalu - Imagem encontrada: https://a-static.mlcdn.com.br/800x560/tablet-vaio-...
+2025-07-28 11:09:34,726 - INFO - Magalu - Parcelamento: R$ 1.945,72 em 21x de R$ 92,65 no Cartão Magalu
+2025-07-28 11:09:34,726 - INFO - Magalu - Extração concluída. Campos encontrados: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 11:09:34,727 - INFO - Processando preço original: 'ouR$ 1.609,08'
+2025-07-28 11:09:34,727 - INFO - Preço processado: ouR$ 1.609,08 -> R$ 1.609,08 (float: 1609.08)
+2025-07-28 11:09:34,727 - INFO - Preço atual processado: R$ 1.609,08 (valor: 1609.08)
+2025-07-28 11:09:34,728 - INFO - Processando preço original: 'R$ 2.299,00'
+2025-07-28 11:09:34,728 - INFO - Preço processado: R$ 2.299,00 -> R$ 2.299,00 (float: 2299.0)
+2025-07-28 11:09:34,728 - INFO - Preço original processado: R$ 2.299,00 (valor: 2299.0)
+2025-07-28 11:09:34,729 - INFO - Desconto calculado automaticamente: 30%
+2025-07-28 11:09:34,729 - INFO - === EXTRAÇÃO CONCLUÍDA ===
+2025-07-28 11:09:34,729 - INFO - Site: Magazine Luiza
+2025-07-28 11:09:34,729 - INFO - Campos extraídos: ['title', 'rating', 'price_original_text', 'price_current_text', 'image_url']
+2025-07-28 11:09:34,730 - INFO - Erros: 0
+2025-07-28 11:09:34,730 - INFO - Tempo total de extração: 8.66s
+2025-07-28 11:09:34,730 - INFO - Resposta enviada - Sucesso: True
+2025-07-28 11:09:34,730 - INFO - 127.0.0.1 - - [28/Jul/2025 11:09:34] "POST /analyze HTTP/1.1" 200 -
+2025-07-28 11:11:12,264 - INFO - Salvando mensagem: 🔥 OFERTA IMPERDÍVEL! 💻\nTablet Vaio TL10 com Teclado de Conexão Inteligente 10,4\" 128GB 8GB RAM And...
+2025-07-28 11:11:12,663 - INFO - HTTP Request: POST https://cnwrcrpihldqejyvgysn.supabase.co/rest/v1/produtos "HTTP/2 201 Created"
+2025-07-28 11:11:12,663 - INFO - Promoção salva no Supabase com sucesso
+2025-07-28 11:11:12,663 - INFO - 127.0.0.1 - - [28/Jul/2025 11:11:12] "POST /supabase/save-promotion HTTP/1.1" 200 -
