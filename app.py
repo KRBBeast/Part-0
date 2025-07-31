@@ -1211,3 +1211,1383 @@ def index():
         logger.error(f"Erro ao renderizar template: {e}")
         # Fallback: retornar HTML inline
         return """
+        <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProScraper Pro v8.0 - Gerador de Promoções</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #1a1a1a;
+      --bg-tertiary: #252525;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --accent-primary: #00d4ff;
+      --accent-secondary: #ff6b6b;
+      --accent-success: #00ff88;
+      --accent-warning: #ffaa00;
+      --border: #2a2a2a;
+      --shadow: rgba(0, 212, 255, 0.1);
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 300;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+    
+    .version-badge {
+      display: inline-block;
+      background: var(--accent-success);
+      color: var(--bg-primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 1fr) minmax(300px, 2fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media (max-width: 968px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px var(--shadow);
+    }
+    
+    .url-input-group {
+      position: relative;
+    }
+    
+    .url-input-group input {
+      padding-right: 50px;
+    }
+    
+    .url-status {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary), #0099cc);
+      color: white;
+      width: 100%;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+    }
+    
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .product-preview {
+      background: var(--bg-tertiary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .product-info {
+      display: flex;
+      gap: 1.5rem;
+      align-items: start;
+      flex-wrap: wrap;
+    }
+    
+    .product-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    
+    .product-details {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .product-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    .price-info {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin: 0.5rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .price-original {
+      text-decoration: line-through;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .price-current {
+      color: var(--accent-success);
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+    .discount-badge {
+      background: var(--accent-secondary);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .message-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .message-container.editing {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    }
+    
+    .message-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-small {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    
+    .btn-copy {
+      background: var(--bg-tertiary);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+    
+    .btn-copy:hover {
+      background: var(--accent-primary);
+      color: var(--bg-primary);
+    }
+    
+    .btn-edit {
+      background: var(--bg-tertiary);
+      color: var(--accent-warning);
+      border: 1px solid var(--accent-warning);
+    }
+    
+    .btn-edit:hover {
+      background: var(--accent-warning);
+      color: var(--bg-primary);
+    }
+    
+    .btn-save-edit {
+      background: var(--accent-success);
+      color: var(--bg-primary);
+    }
+    
+    .btn-save-edit:hover {
+      background: #00cc6a;
+    }
+    
+    .btn-cancel {
+      background: var(--accent-secondary);
+      color: white;
+    }
+    
+    .btn-cancel:hover {
+      background: #ff5252;
+    }
+    
+    .btn-regen {
+      background: var(--bg-tertiary);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+    
+    .btn-regen:hover {
+      background: var(--accent-primary);
+      color: var(--bg-primary);
+    }
+    
+    .btn-save {
+      background: var(--accent-success);
+      color: var(--bg-primary);
+    }
+    
+    .btn-save:hover {
+      background: #00cc6a;
+    }
+    
+    .btn-save:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .message-text {
+      font-family: 'Consolas', 'Monaco', monospace;
+      white-space: pre-wrap;
+      color: var(--text-primary);
+      line-height: 1.8;
+      width: 100%;
+      min-height: 120px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      resize: vertical;
+    }
+    
+    .message-text:not([readonly]) {
+      background: var(--bg-primary);
+      border-color: var(--accent-primary);
+    }
+    
+    .editing-indicator {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: var(--accent-warning);
+      color: var(--bg-primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .message-container.editing .editing-indicator {
+      display: block;
+    }
+    
+    .status-bar {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .status-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-success);
+      animation: blink 1s ease-in-out infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .loader {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--bg-tertiary);
+      border-top-color: var(--accent-primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 2rem auto;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .stat-card {
+      background: var(--bg-tertiary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 25px;
+      background: var(--bg-tertiary);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    
+    .toggle-switch.active {
+      background: var(--accent-primary);
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      width: 21px;
+      height: 21px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s ease;
+    }
+    
+    .toggle-switch.active .toggle-slider {
+      transform: translateX(25px);
+    }
+    
+    .notification {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      max-width: 90vw;
+    }
+    
+    .notification.show {
+      transform: translateX(0);
+    }
+    
+    .notification.success {
+      background: var(--accent-success);
+    }
+    
+    .notification.error {
+      background: var(--accent-secondary);
+    }
+    
+    .notification.info {
+      background: var(--accent-primary);
+    }
+    
+    .extraction-details {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    .extraction-details h4 {
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .extraction-details .detail-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.3rem;
+    }
+    
+    .error-list {
+      background: rgba(255, 107, 107, 0.1);
+      border: 1px solid var(--accent-secondary);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .error-list h4 {
+      color: var(--accent-secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .error-item {
+      color: var(--accent-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0.5rem;
+      }
+      
+      .card {
+        padding: 1rem;
+      }
+      
+      .message-actions {
+        flex-direction: column;
+      }
+      
+      .btn-small {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .product-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .notification {
+        right: 1rem;
+        left: 1rem;
+        max-width: calc(100vw - 2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>ProScraper Pro</h1>
+      <p class="subtitle">Sistema Avançado de Extração e Geração de Promoções com ScraperAPI</p>
+      <div class="version-badge">v8.0 - ScraperAPI Integrado ✨</div>
+    </header>
+
+    <div class="main-grid">
+      <div class="card">
+        <h2 class="section-title">⚙️ Configurações</h2>
+        
+        <div class="form-group">
+          <label>URL do Produto</label>
+          <div class="url-input-group">
+            <input type="url" id="productUrl" placeholder="Cole a URL do produto aqui (Mercado Livre, Amazon, Magazine Luiza, Shopee)">
+            <span class="url-status" id="urlStatus"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Categoria do Produto</label>
+          <select id="category">
+            <option value="tecnologia">💻 Tecnologia</option>
+            <option value="casa">🏠 Casa e Utensílios</option>
+            <option value="saude">💪 Saúde e Fitness</option>
+            <option value="moda">👗 Moda e Beleza</option>
+            <option value="esporte">⚽ Esporte e Lazer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de Mensagem</label>
+          <select id="messageType">
+            <option value="impacto">🔥 Alto Impacto</option>
+            <option value="urgencia">⏰ Urgência</option>
+            <option value="beneficio">✨ Benefícios</option>
+            <option value="escassez">🚨 Escassez</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Configurações de Frete</label>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+            <span style="font-size: 0.9rem;">Incluir Frete Grátis</span>
+            <div class="toggle-switch" id="toggleFrete">
+              <div class="toggle-slider"></div>
+            </div>
+          </div>
+          <div id="freteConfig" style="display: none; margin-top: 1rem;">
+            <input type="text" id="freteMinimo" placeholder="Valor mínimo (ex: R$ 79,90)" style="margin-bottom: 0.5rem;">
+            <select id="freteCondicao">
+              <option value="geral">Frete Grátis</option>
+              <option value="minimo">Frete Grátis acima de X</option>
+              <option value="prime">Frete Grátis Prime/Full</option>
+              <option value="regiao">Frete Grátis para sua região</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Configurações de Cupom</label>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+            <span style="font-size: 0.9rem;">Incluir Cupom</span>
+            <div class="toggle-switch" id="toggleCupom">
+              <div class="toggle-slider"></div>
+            </div>
+          </div>
+          <div id="cupomConfig" style="display: none; margin-top: 1rem;">
+            <input type="text" id="cupomCodigo" placeholder="Código do cupom (ex: PROMO10)" style="margin-bottom: 0.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              <input type="number" id="cupomValor" placeholder="Valor do desconto">
+              <select id="cupomTipo">
+                <option value="porcentagem">% de desconto</option>
+                <option value="reais">R$ de desconto</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Outras Configurações</label>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+            <span style="font-size: 0.9rem;">Incluir avaliações</span>
+            <div class="toggle-switch" id="toggleRatings">
+              <div class="toggle-slider"></div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem;">
+            <span style="font-size: 0.9rem;">Salvar no Supabase</span>
+            <div class="toggle-switch active" id="toggleSupabase">
+              <div class="toggle-slider"></div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-icon" onclick="extractProduct()" style="margin-top: 2rem;" id="extractBtn">
+          <span>🚀</span> Extrair com ScraperAPI
+        </button>
+
+        <div class="status-bar" id="statusBar">
+          <div class="status-content">
+            <div class="status-indicator"></div>
+            <span id="statusText">Pronto para extrair</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">📊 Preview do Produto</h2>
+        
+        <div class="product-preview" id="productPreview">
+          <div class="product-info">
+            <img class="product-image" id="productImage" src="" alt="Produto">
+            <div class="product-details">
+              <h3 id="productTitle">Aguardando extração...</h3>
+              <div class="price-info">
+                <span class="price-original" id="priceOriginal"></span>
+                <span class="price-current" id="priceCurrent"></span>
+                <span class="discount-badge" id="discountBadge"></span>
+              </div>
+              <div id="productRating" style="margin-top: 0.5rem; color: var(--accent-warning);"></div>
+              <div id="productStore" style="margin-top: 0.5rem; color: var(--text-secondary);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="extraction-details" id="extractionDetails" style="display: none;">
+          <h4>📋 Detalhes da Extração</h4>
+          <div class="detail-item">
+            <span>Tempo de extração:</span>
+            <span id="extractionTime">-</span>
+          </div>
+          <div class="detail-item">
+            <span>Site identificado:</span>
+            <span id="siteName">-</span>
+          </div>
+          <div class="detail-item">
+            <span>URL final:</span>
+            <span id="finalUrl">-</span>
+          </div>
+        </div>
+
+        <div class="error-list" id="errorList" style="display: none;">
+          <h4>⚠️ Problemas Encontrados</h4>
+          <div id="errorItems"></div>
+        </div>
+
+        <div class="loader" id="loader"></div>
+
+        <div id="messagesContainer" style="margin-top: 2rem; display: none;">
+          <h3 class="section-title">✉️ Mensagens Geradas</h3>
+          <div id="messagesList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-label">Total Extrações</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statSuccess">0</div>
+        <div class="stat-label">Sucesso</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statSaved">0</div>
+        <div class="stat-label">Salvas no DB</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statTime">0s</div>
+        <div class="stat-label">Tempo Médio</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <script>
+    // Estado da aplicação
+    let currentProduct = null;
+    let stats = {
+      total: 0,
+      success: 0,
+      saved: 0,
+      totalTime: 0
+    };
+
+    // Detectar tipo de site pela URL
+    function detectSiteType(url) {
+      if (url.includes('mercadolivre.com') || url.includes('mercadolivre.com.br') || url.includes('ml.com')) {
+        return 'mercadolivre';
+      } else if (url.includes('amzn.to') || url.includes('amazon.com.br')) {
+        return 'amazon';
+      } else if (url.includes('magazineluiza.com.br') || url.includes('magazinevoce.com.br') || url.includes('magazineluiza.onelink.me')) {
+        return 'magazineluiza';
+      } else if (url.includes('shopee.com.br') || url.includes('s.shopee.com.br')) {
+        return 'shopee';
+      }
+      return 'unknown';
+    }
+
+    // Atualizar status da URL
+    document.getElementById('productUrl').addEventListener('input', function(e) {
+      const url = e.target.value;
+      const status = document.getElementById('urlStatus');
+      
+      if (!url) {
+        status.textContent = '';
+        return;
+      }
+
+      const siteType = detectSiteType(url);
+      const icons = {
+        mercadolivre: '🛒',
+        amazon: '📦',
+        magazineluiza: '🏪',
+        shopee: '🛍️',
+        unknown: '❓'
+      };
+      
+      status.textContent = icons[siteType];
+    });
+
+    // Toggle switches
+    document.querySelectorAll('.toggle-switch').forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        
+        if (this.id === 'toggleFrete') {
+          document.getElementById('freteConfig').style.display = 
+            this.classList.contains('active') ? 'block' : 'none';
+        } else if (this.id === 'toggleCupom') {
+          document.getElementById('cupomConfig').style.display = 
+            this.classList.contains('active') ? 'block' : 'none';
+        }
+        
+        if (['toggleFrete', 'toggleCupom', 'toggleRatings'].includes(this.id) && currentProduct) {
+          generateMessages();
+        }
+      });
+    });
+
+    // Mostrar notificação
+    function showNotification(message, type = 'info') {
+      const notification = document.getElementById('notification');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    // Atualizar estatísticas
+    function updateStats() {
+      document.getElementById('statTotal').textContent = stats.total;
+      document.getElementById('statSuccess').textContent = stats.success;
+      document.getElementById('statSaved').textContent = stats.saved;
+      document.getElementById('statTime').textContent = stats.total > 0 
+        ? `${(stats.totalTime / stats.total / 1000).toFixed(1)}s`
+        : '0s';
+    }
+
+    // Extrair dados do produto - AJUSTADO PARA O APP.PY
+    async function extractProduct() {
+      const url = document.getElementById('productUrl').value.trim();
+      
+      if (!url) {
+        showNotification('Por favor, insira uma URL válida', 'error');
+        return;
+      }
+
+      const loader = document.getElementById('loader');
+      const preview = document.getElementById('productPreview');
+      const statusBar = document.getElementById('statusBar');
+      const statusText = document.getElementById('statusText');
+      const extractBtn = document.getElementById('extractBtn');
+      const extractionDetails = document.getElementById('extractionDetails');
+      const errorList = document.getElementById('errorList');
+      
+      // UI durante extração
+      loader.style.display = 'block';
+      preview.style.display = 'none';
+      statusBar.style.display = 'flex';
+      extractionDetails.style.display = 'none';
+      errorList.style.display = 'none';
+      extractBtn.disabled = true;
+      extractBtn.innerHTML = '<span>⏳</span> Extraindo...';
+      statusText.textContent = 'Extraindo dados com ScraperAPI...';
+      
+      const startTime = Date.now();
+      stats.total++;
+
+      try {
+        // Fazer requisição para o endpoint /scrape do app.py
+        const response = await fetch('/scrape', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url })
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+          currentProduct = data.product;
+          stats.success++;
+          stats.totalTime += Date.now() - startTime;
+          
+          displayProduct(currentProduct);
+          displayExtractionDetails(currentProduct);
+          
+          if (currentProduct.errors && currentProduct.errors.length > 0) {
+            displayErrors(currentProduct.errors);
+          }
+          
+          generateMessages();
+          
+          statusText.textContent = 'Extração concluída com sucesso!';
+          showNotification('Dados extraídos com sucesso via ScraperAPI!', 'success');
+        } else {
+          throw new Error(data.error || 'Erro na extração');
+        }
+      } catch (error) {
+        statusText.textContent = 'Erro na extração';
+        showNotification(`Erro: ${error.message}`, 'error');
+        console.error('Erro na extração:', error);
+      } finally {
+        loader.style.display = 'none';
+        extractBtn.disabled = false;
+        extractBtn.innerHTML = '<span>🚀</span> Extrair com ScraperAPI';
+        updateStats();
+      }
+    }
+
+    // Exibir dados do produto - AJUSTADO PARA ESTRUTURA DO APP.PY
+    function displayProduct(product) {
+      const preview = document.getElementById('productPreview');
+      preview.style.display = 'block';
+
+      // Imagem
+      const img = document.getElementById('productImage');
+      if (product.image_url) {
+        img.src = product.image_url;
+        img.onerror = () => { img.src = 'https://via.placeholder.com/150?text=Sem+Imagem'; };
+      } else {
+        img.src = 'https://via.placeholder.com/150?text=Sem+Imagem';
+      }
+
+      // Título
+      document.getElementById('productTitle').textContent = 
+        product.title || 'Produto sem título';
+
+      // Preços
+      const priceOriginal = document.getElementById('priceOriginal');
+      const priceCurrent = document.getElementById('priceCurrent');
+      const discountBadge = document.getElementById('discountBadge');
+
+      if (product.price_original_text) {
+        priceOriginal.textContent = product.price_original_text;
+        priceOriginal.style.display = 'inline';
+      } else {
+        priceOriginal.style.display = 'none';
+      }
+
+      if (product.price_current_text) {
+        priceCurrent.textContent = product.price_current_text;
+      } else {
+        priceCurrent.textContent = 'Preço não disponível';
+      }
+
+      if (product.discount_percentage) {
+        discountBadge.textContent = `${product.discount_percentage}% OFF`;
+        discountBadge.style.display = 'inline';
+      } else {
+        discountBadge.style.display = 'none';
+      }
+
+      // Avaliação
+      const ratingDiv = document.getElementById('productRating');
+      if (product.rating) {
+        const ratingText = `⭐ ${product.rating}/5`;
+        const countText = product.rating_count ? ` (${product.rating_count} avaliações)` : '';
+        ratingDiv.textContent = ratingText + countText;
+        ratingDiv.style.display = 'block';
+      } else {
+        ratingDiv.style.display = 'none';
+      }
+
+      // Loja
+      document.getElementById('productStore').textContent = 
+        `🏪 ${product.site_name || 'Loja desconhecida'}`;
+    }
+
+    // Exibir detalhes da extração
+    function displayExtractionDetails(product) {
+      const details = document.getElementById('extractionDetails');
+      details.style.display = 'block';
+      
+      document.getElementById('extractionTime').textContent = 
+        product.extraction_time ? `${product.extraction_time.toFixed(2)}s` : '-';
+      
+      document.getElementById('siteName').textContent = 
+        product.site_name || 'Desconhecido';
+      
+      document.getElementById('finalUrl').textContent = 
+        product.url ? product.url.substring(0, 50) + '...' : '-';
+    }
+
+    // Exibir erros
+    function displayErrors(errors) {
+      const errorList = document.getElementById('errorList');
+      const errorItems = document.getElementById('errorItems');
+      
+      errorItems.innerHTML = '';
+      errors.forEach(error => {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-item';
+        errorDiv.textContent = `• ${error}`;
+        errorItems.appendChild(errorDiv);
+      });
+      
+      errorList.style.display = 'block';
+    }
+
+    // Criar mensagens promocionais - AJUSTADO PARA ESTRUTURA DO APP.PY
+    function createPromotionalMessages(product, category, messageType, includeRatings) {
+      const title = product.title || 'Produto em oferta';
+      const priceOriginal = product.price_original_text;
+      const priceCurrent = product.price_current_text;
+      const discount = product.discount_percentage;
+      const url = product.url;
+      const rating = product.rating;
+      const ratingCount = product.rating_count;
+
+      // Configurações de frete
+      const includeFrete = document.getElementById('toggleFrete').classList.contains('active');
+      const freteMinimo = document.getElementById('freteMinimo').value;
+      const freteCondicao = document.getElementById('freteCondicao').value;
+      
+      // Configurações de cupom
+      const includeCupom = document.getElementById('toggleCupom').classList.contains('active');
+      const cupomCodigo = document.getElementById('cupomCodigo').value || 'PROMO10';
+      const cupomValor = document.getElementById('cupomValor').value || '10';
+      const cupomTipo = document.getElementById('cupomTipo').value;
+
+      // Texto de frete
+      let freteTexto = '';
+      if (includeFrete) {
+        switch(freteCondicao) {
+          case 'geral':
+            freteTexto = '\n🚚 FRETE GRÁTIS';
+            break;
+          case 'minimo':
+            freteTexto = `\n🚚 FRETE GRÁTIS acima de ${freteMinimo || 'R$ 79,90'}`;
+            break;
+          case 'prime':
+            freteTexto = '\n🚚 FRETE GRÁTIS com Prime/Full';
+            break;
+          case 'regiao':
+            freteTexto = '\n🚚 FRETE GRÁTIS para sua região';
+            break;
+        }
+      }
+
+      // Texto de cupom
+      let cupomTexto = '';
+      if (includeCupom && cupomCodigo) {
+        const simbolo = cupomTipo === 'porcentagem' ? '%' : 'R;
+        cupomTexto = `\n🎟️ USE O CUPOM: ${cupomCodigo.toUpperCase()} (${simbolo}${cupomValor} OFF)`;
+      }
+
+      // Texto de avaliação
+      let avaliacaoTexto = '';
+      if (includeRatings && rating) {
+        avaliacaoTexto = `\n⭐ ${rating}/5 (${ratingCount || '0'} avaliações)`;
+      }
+
+      const emojis = {
+        tecnologia: '💻',
+        casa: '🏠',
+        saude: '💪',
+        moda: '👗',
+        esporte: '⚽'
+      };
+
+      const templates = {
+        impacto: [
+          `🔥 OFERTA IMPERDÍVEL! ${emojis[category]}\n${title}${avaliacaoTexto}\n${priceOriginal ? `💸 De ${priceOriginal} por ${priceCurrent}` : `💰 Por apenas ${priceCurrent}`}${discount ? ` (${discount}% OFF)` : ''}${freteTexto}${cupomTexto}\n🚀 Garanta já o seu!\n🔗 ${url}\n\n📱 Grupo VIP: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`,
+          `⚡ SUPER PROMOÇÃO ${emojis[category]}\n${title}${avaliacaoTexto}\n${discount ? `🎯 ${discount}% DE DESCONTO!` : '🎯 PREÇO ESPECIAL!'}\n${priceCurrent ? `💰 Apenas ${priceCurrent}` : '💰 Confira o preço!'}${freteTexto}${cupomTexto}\n✨ Oferta por tempo limitado\n🔗 ${url}\n\n📱 Mais ofertas: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`
+        ],
+        urgencia: [
+          `⏰ ÚLTIMAS HORAS! ${emojis[category]}\n${title}${avaliacaoTexto}\n${priceOriginal ? `❌ ${priceOriginal}` : ''}\n✅ ${priceCurrent || 'Preço especial'}${discount ? ` (-${discount}%)` : ''}${freteTexto}${cupomTexto}\n🏃‍♂️ Corre que ainda dá tempo!\n🔗 ${url}\n\n📱 Grupo exclusivo: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`,
+          `🚨 ATENÇÃO! Oferta relâmpago ${emojis[category]}\n${title}${avaliacaoTexto}\n${discount ? `💥 ${discount}% OFF SOMENTE HOJE!` : '💥 PROMOÇÃO ESPECIAL!'}\n${priceCurrent ? `💵 ${priceCurrent}` : '💵 Preço imperdível'}${freteTexto}${cupomTexto}\n⚡ Estoque limitado!\n🔗 ${url}\n\n📱 Não perca mais nenhuma: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`
+        ],
+        beneficio: [
+          `✨ ${title} ${emojis[category]}${avaliacaoTexto}\n${priceOriginal && priceCurrent ? `💰 Economia de ${priceOriginal} para ${priceCurrent}` : `💰 ${priceCurrent || 'Preço especial'}`}${freteTexto}${cupomTexto}\n✅ Qualidade garantida\n✅ Entrega rápida\n✅ Compra segura\n🔗 ${url}\n\n📱 Ofertas diárias: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`,
+          `🎁 Presenteie com economia! ${emojis[category]}\n${title}${avaliacaoTexto}\n${discount ? `🏷️ ${discount}% de desconto` : '🏷️ Oferta especial'}\n${priceCurrent ? `💳 ${priceCurrent} (parcele sem juros!)` : '💳 Condições imperdíveis'}${freteTexto}${cupomTexto}\n🚚 Entrega garantida\n🔗 ${url}\n\n📱 Grupo VIP: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`
+        ],
+        escassez: [
+          `🚨 ÚLTIMAS UNIDADES! ${emojis[category]}\n${title}${avaliacaoTexto}\n${priceOriginal && discount ? `🔥 ${discount}% OFF - De ${priceOriginal} por ${priceCurrent}` : `💰 ${priceCurrent || 'Preço imperdível'}`}${freteTexto}${cupomTexto}\n⚠️ Quase esgotado!\n🛒 Compre antes que acabe\n🔗 ${url}\n\n📱 Fique por dentro: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`,
+          `🔴 ESTOQUE LIMITADO! ${emojis[category]}\n${title}${avaliacaoTexto}\n${discount ? `💣 DESCONTO DE ${discount}%` : '💣 OFERTA EXCLUSIVA'}\n${priceCurrent ? `💵 Apenas ${priceCurrent}` : '💵 Confira!'}${freteTexto}${cupomTexto}\n📦 Poucas unidades restantes\n🔗 ${url}\n\n📱 Grupo de ofertas: https://chat.whatsapp.com/JelwkQXy1Mj05NWybBCTQX`
+        ]
+      };
+
+      const selectedTemplates = templates[messageType] || templates.impacto;
+      return selectedTemplates;
+    }
+
+    // Gerar mensagens
+    function generateMessages() {
+      if (!currentProduct) return;
+
+      const container = document.getElementById('messagesContainer');
+      const messagesList = document.getElementById('messagesList');
+      
+      container.style.display = 'block';
+      messagesList.innerHTML = '';
+
+      const category = document.getElementById('category').value;
+      const messageType = document.getElementById('messageType').value;
+      const includeRatings = document.getElementById('toggleRatings').classList.contains('active');
+
+      const messages = createPromotionalMessages(currentProduct, category, messageType, includeRatings);
+
+      messages.forEach((message, index) => {
+        const messageContainer = createMessageElement(message, index);
+        messagesList.appendChild(messageContainer);
+      });
+
+      window.generatedMessages = messages;
+    }
+
+    // Criar elemento de mensagem
+    function createMessageElement(message, index) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message-container';
+      messageDiv.id = `container-${index}`;
+
+      // Indicador de edição
+      const editingIndicator = document.createElement('span');
+      editingIndicator.className = 'editing-indicator';
+      editingIndicator.textContent = '✏️ Editando';
+
+      // Textarea
+      const textarea = document.createElement('textarea');
+      textarea.className = 'message-text';
+      textarea.value = message;
+      textarea.setAttribute('readonly', true);
+      textarea.id = `message-${index}`;
+
+      // Container de ações
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'message-actions';
+
+      // Criar botões
+      const buttons = createMessageButtons(textarea, messageDiv, index, message);
+      
+      // Adicionar botões ao container
+      Object.values(buttons).forEach(button => {
+        actionsDiv.appendChild(button);
+      });
+
+      // Montar o elemento
+      messageDiv.appendChild(editingIndicator);
+      messageDiv.appendChild(actionsDiv);
+      messageDiv.appendChild(textarea);
+
+      return messageDiv;
+    }
+
+    // Criar botões da mensagem
+    function createMessageButtons(textarea, messageDiv, index, originalMessage) {
+      let originalText = textarea.value;
+      
+      // Botão Copiar
+      const btnCopy = document.createElement('button');
+      btnCopy.className = 'btn-small btn-copy';
+      btnCopy.innerHTML = '📋 Copiar';
+      btnCopy.onclick = () => {
+        navigator.clipboard.writeText(textarea.value);
+        showNotification('Mensagem copiada!', 'success');
+      };
+
+      // Botão Editar
+      const btnEdit = document.createElement('button');
+      btnEdit.className = 'btn-small btn-edit';
+      btnEdit.innerHTML = '✏️ Editar';
+      
+      // Botão Salvar Alteração
+      const btnSaveEdit = document.createElement('button');
+      btnSaveEdit.className = 'btn-small btn-save-edit';
+      btnSaveEdit.innerHTML = '💾 Salvar Alteração';
+      btnSaveEdit.style.display = 'none';
+      
+      // Botão Cancelar
+      const btnCancel = document.createElement('button');
+      btnCancel.className = 'btn-small btn-cancel';
+      btnCancel.innerHTML = '❌ Cancelar';
+      btnCancel.style.display = 'none';
+      
+      // Botão Regenerar
+      const btnRegen = document.createElement('button');
+      btnRegen.className = 'btn-small btn-regen';
+      btnRegen.innerHTML = '🔄 Regenerar';
+      
+      // Botão Enviar
+      const btnSend = document.createElement('button');
+      btnSend.className = 'btn-small btn-save';
+      btnSend.innerHTML = '🚀 Enviar para Supabase';
+
+      // Função Editar
+      btnEdit.onclick = () => {
+        originalText = textarea.value;
+        textarea.removeAttribute('readonly');
+        textarea.focus();
+        
+        btnEdit.style.display = 'none';
+        btnSaveEdit.style.display = 'inline-block';
+        btnCancel.style.display = 'inline-block';
+        btnRegen.style.display = 'none';
+        btnSend.style.display = 'none';
+        
+        messageDiv.classList.add('editing');
+      };
+
+      // Função Salvar Alteração
+      btnSaveEdit.onclick = () => {
+        textarea.setAttribute('readonly', true);
+        
+        btnEdit.style.display = 'inline-block';
+        btnSaveEdit.style.display = 'none';
+        btnCancel.style.display = 'none';
+        btnRegen.style.display = 'inline-block';
+        btnSend.style.display = 'inline-block';
+        
+        messageDiv.classList.remove('editing');
+        showNotification('✅ Alteração salva!', 'success');
+      };
+
+      // Função Cancelar
+      btnCancel.onclick = () => {
+        textarea.value = originalText;
+        textarea.setAttribute('readonly', true);
+        
+        btnEdit.style.display = 'inline-block';
+        btnSaveEdit.style.display = 'none';
+        btnCancel.style.display = 'none';
+        btnRegen.style.display = 'inline-block';
+        btnSend.style.display = 'inline-block';
+        
+        messageDiv.classList.remove('editing');
+        showNotification('Edição cancelada', 'info');
+      };
+
+      // Função Regenerar
+      btnRegen.onclick = () => {
+        const newMessages = createPromotionalMessages(
+          currentProduct,
+          document.getElementById('category').value,
+          document.getElementById('messageType').value,
+          document.getElementById('toggleRatings').classList.contains('active')
+        );
+        const newMessage = newMessages[index % newMessages.length];
+        textarea.value = newMessage;
+        showNotification('Mensagem regenerada!', 'success');
+      };
+
+      // Função Enviar - AJUSTADA PARA ENDPOINT DO APP.PY
+      btnSend.onclick = async () => {
+        btnSend.disabled = true;
+        btnSend.innerHTML = '⏳ Enviando...';
+        
+        try {
+          await saveToSupabase(index, textarea.value);
+          btnSend.innerHTML = '✅ Enviado!';
+          btnSend.style.background = '#00ff88';
+          
+          setTimeout(() => {
+            btnSend.innerHTML = '🚀 Enviar para Supabase';
+            btnSend.style.background = '';
+            btnSend.disabled = false;
+          }, 2000);
+        } catch (error) {
+          btnSend.innerHTML = '❌ Erro';
+          btnSend.style.background = '#ff6b6b';
+          showNotification(`Erro ao salvar: ${error.message}`, 'error');
+          
+          setTimeout(() => {
+            btnSend.innerHTML = '🚀 Enviar para Supabase';
+            btnSend.style.background = '';
+            btnSend.disabled = false;
+          }, 2000);
+        }
+      };
+
+      return {
+        btnCopy,
+        btnEdit,
+        btnSaveEdit,
+        btnCancel,
+        btnRegen,
+        btnSend
+      };
+    }
+
+    // Salvar no Supabase - AJUSTADO PARA ENDPOINT DO APP.PY
+    async function saveToSupabase(index, messageText) {
+      if (!document.getElementById('toggleSupabase').classList.contains('active')) {
+        showNotification('Supabase desativado', 'info');
+        return;
+      }
+
+      const imageUrl = currentProduct?.image_url || '';
+      
+      const payload = {
+        mensagem: messageText,
+        imagem_url: imageUrl,
+        produto_titulo: currentProduct?.title || '',
+        produto_url: currentProduct?.url || '',
+        preco_atual: currentProduct?.price_current || null,
+        preco_original: currentProduct?.price_original || null,
+        desconto: currentProduct?.discount_percentage || null,
+        site: currentProduct?.site_name || ''
+      };
+
+      const response = await fetch('/save-promotion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        stats.saved++;
+        updateStats();
+        showNotification('Mensagem salva no Supabase!', 'success');
+      } else {
+        throw new Error(result.error || 'Erro ao salvar no Supabase');
+      }
+    }
+
+    // Event listeners para regenerar mensagens
+    ['freteMinimo', 'freteCondicao', 'cupomCodigo', 'cupomValor', 'cupomTipo', 'category', 'messageType'].forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.addEventListener(element.tagName === 'SELECT' ? 'change' : 'input', () => {
+          if (currentProduct) generateMessages();
+        });
+      }
+    });
+
+    // Inicializar estatísticas
+    updateStats();
+
+    console.log('🚀 ProScraper Pro v8.0 - Frontend integrado com ScraperAPI funcionando!');
+  </script>
+</body>
+</html>
+"""
